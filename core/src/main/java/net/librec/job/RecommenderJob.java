@@ -227,7 +227,7 @@ public class RecommenderJob {
                 if (evalValueMap != null && evalValueMap.size() > 0) {
                     for (Map.Entry<MeasureValue, Double> entry : evalValueMap.entrySet()) {
                         String evalName = null;
-                        if (entry != null && entry.getKey() != null) {
+                        if (entry != null && entry.getKey() != null && entry.getKey().getMeasure().toString() == "MSE" ) {
                             if (entry.getKey().getTopN() != null && entry.getKey().getTopN() > 0) {
                                 LOG.info("Evaluator value:" + entry.getKey().getMeasure() + " top " + entry.getKey().getTopN() + " is " + entry.getValue());
                                 evalName = entry.getKey().getMeasure() + " top " + entry.getKey().getTopN();
